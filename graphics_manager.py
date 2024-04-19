@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from functools import wraps
 from PIL import Image, ImageTk
+from typing import Union
 
 from tools import Tools
 from tools import TextInsertWindow
@@ -2484,7 +2485,7 @@ class GraphicsCache:
     # tool:str
     coordinates: list  # coordinates
     width: int  # width
-    tags: str | tuple  # tags
+    tags: Union[str,tuple]  # tags
     tool: int  # tool id
     fill_color: str = ""  # fill
     shape_fill: bool = False
@@ -2506,12 +2507,12 @@ class OverlayImageCache():
     """
     image_object: Image  # obj from Image.open(image_path)
     image_path: str
-    coordinates: list | tuple  # coordinates
-    max_coordinates: list | tuple
-    proxy_coordinates: list | tuple
+    coordinates: Union[list,tuple]  # coordinates
+    max_coordinates: Union[list,tuple]
+    proxy_coordinates: Union[list,tuple]
     size: tuple
     max_size: tuple
     proxy_size: tuple
     opacity: int
     angle: int
-    tags: str | tuple  # tags
+    tags: Union[str,tuple]  # tags
